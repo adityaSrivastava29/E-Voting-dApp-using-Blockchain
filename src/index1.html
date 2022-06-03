@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Voting Dapp</title>
+<link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+
+  <!-- <link href="css/landing.css" rel="stylesheet">
+  <link href="css/style1.css" rel="stylesheet">  -->
+  <link href="login.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+  <!-- <header>
+    <div id="navbar-custom"></div>
+  </header> -->
+</head>
+ 
+<!-- <body style="overflow-y: hidden;"> -->
+
+<body>
+  
+
+  <!--Correct username: invitado / pass: hgm2015-->
+
+<section class="form animated flipInX">
+    <h2>Welcome to E-Voting</h2>
+    <p class="valid">Valid. Please wait a moment.</p>
+    <p class="error">Error. Please enter correct Username &amp; password.</p>
+    <form class="loginbox" autocomplete="off">
+      <input placeholder="Username" type="text" id="username"></input>
+      <input placeholder="Password" type="password" id="password"></input>
+  <button id="submit">Login</button>
+  </form>
+  </section>
+
+  <script src="js/navbar.js"></script>
+  <script>
+
+$(document).ready(function() {
+    //$('#username').focus();
+
+    $('#submit').click(function() {
+
+        event.preventDefault(); // prevent PageReLoad
+
+       var ValidEmail = $('#username').val() === 'aditya'; // User validate
+var ValidPassword = $('#password').val() === 'admin123'; // Password validate
+
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
+            $('.valid').css('display', 'block');
+            window.location = "/index.html"; // go to home.html
+        }
+        else {
+            $('.error').css('display', 'block'); // show error msg
+        }
+    });
+});
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
